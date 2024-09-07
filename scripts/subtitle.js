@@ -46,18 +46,17 @@ function applySubtitles(videoElement, subtitles) {
   // Create subtitle container
   const subtitleContainer = document.createElement('div');
   subtitleContainer.style.position = 'absolute';
-  subtitleContainer.style.bottom = '10%';
   subtitleContainer.style.width = '100%';
   subtitleContainer.style.textAlign = 'center';
   subtitleContainer.style.color = 'white';
   subtitleContainer.style.textShadow = '1px 1px 1px black';
-  subtitleContainer.style.fontSize = '2.5vh'; // Using viewport height for font size
+  subtitleContainer.style.fontSize = '3vh'; // Using viewport height for font size
   subtitleContainer.style.zIndex = '1000';
 
   document.body.appendChild(subtitleContainer);
 
-  // Function to update subtitle
-  function updateSubtitle() {
+  // Function to update subtitle and position
+  function updateSubtitleAndPosition() {
     const currentTime = videoElement.currentTime;
     let currentSubtitle = '';
 
@@ -69,10 +68,19 @@ function applySubtitles(videoElement, subtitles) {
     }
 
     subtitleContainer.textContent = currentSubtitle;
+
+    const playerTimedTextContainer = document.querySelector('.player-timedtext-text-container');
+    if (playerTimedTextContainer) {
+      const bbox = playerTimedTextContainer.getBoundingClientRect();
+      subtitleContainer.style.bottom = `${window.innerHeight - bbox.bottom - subtitleContainer.offsetHeight - 5}px`;
+    }
   }
 
-  // Update subtitle on timeupdate event
-  videoElement.addEventListener('timeupdate', updateSubtitle);
+  // Update subtitle and position on timeupdate event
+  videoElement.addEventListener('timeupdate', updateSubtitleAndPosition);
+
+  // Also update position on window resize
+  window.addEventListener('resize', updateSubtitleAndPosition);
 }
 
 // Main function to load and apply subtitles
