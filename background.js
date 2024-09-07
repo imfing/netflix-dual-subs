@@ -8,5 +8,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       world: 'MAIN',
       files: ['scripts/inject.js', 'scripts/subtitle.js'],
     });
+  } else if (request.action === "getSettings") {
+    chrome.storage.local.get(null, (items) => {
+      sendResponse({ settings: items });
+    });
+    return true; // Indicates that the response is sent asynchronously
   }
 });

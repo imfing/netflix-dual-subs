@@ -83,25 +83,35 @@ function applySubtitles(videoElement, subtitles) {
   window.addEventListener('resize', updateSubtitleAndPosition);
 }
 
-// Main function to load and apply subtitles
-function loadAndApplySubtitles(videoElement, language) {
+// Function to get settings from content script
+function getSettings() {
+  return new Promise((resolve) => {
+    window.dispatchEvent(new CustomEvent('getSettings'));
+    window.addEventListener('settingsReceived', function onSettingsReceived(event) {
+      window.removeEventListener('settingsReceived', onSettingsReceived);
+      resolve(event.detail);
+    });
+  });
+}
+
+// Modify the loadAndApplySubtitles function to use the settings
+async function loadAndApplySubtitles(videoElement) {
+  const settings = await getSettings();
+  console.log('Settings:', settings);
+  const language = settings.preferredLanguage || 'en'; // Default to English if not set
   const subtitles = loadSubtitles(language);
   if (subtitles) {
     applySubtitles(videoElement, subtitles);
   }
 }
 
-
 // Use a MutationObserver to wait for the video element to be available
 const observer = new MutationObserver((mutations, obs) => {
   const videoElement = document.querySelector('[data-uia="video-canvas"] video');
   if (videoElement) {
     console.debug('Video element found:', videoElement);
-
     obs.disconnect();
-
-    // TODO: get language from extension setting
-    loadAndApplySubtitles(videoElement, 'ja');
+    loadAndApplySubtitles(videoElement);
   }
 });
 
