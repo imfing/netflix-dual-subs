@@ -1,3 +1,2 @@
-console.log('Netflix Dual Language Subtitles content script loaded');
-
+// send message to background.js
 chrome.runtime.sendMessage({ contentScriptQuery: "injectScript" });
