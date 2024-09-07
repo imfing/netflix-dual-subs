@@ -53,7 +53,12 @@ function applySubtitles(videoElement, subtitles) {
   subtitleContainer.style.fontSize = '3vh'; // Using viewport height for font size
   subtitleContainer.style.zIndex = '1000';
 
-  document.body.appendChild(subtitleContainer);
+  const playerElement = document.querySelector('[data-uia="player"]');
+  if (playerElement) {
+    playerElement.appendChild(subtitleContainer);
+  } else {
+    document.body.appendChild(subtitleContainer); // Fallback if player element is not found
+  }
 
   // Function to update subtitle and position
   function updateSubtitleAndPosition() {
