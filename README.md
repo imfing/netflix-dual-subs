@@ -1,6 +1,6 @@
 # Netflix Dual Language Subtitles
 
-A Chrome extension that adds support for dual language subtitles on Netflix.
+A Chrome extension that adds support for dual language subtitles on Netflix. Great for language learners.
 
 ## Features
 
@@ -11,7 +11,7 @@ A Chrome extension that adds support for dual language subtitles on Netflix.
 
 ## Installation
 
-1. Clone this repository or download the source code
+1. Download the source code from [here](https://github.com/imfing/netflix-dual-subs/archive/refs/heads/main.zip) and unzip it
 2. Open Chrome and navigate to `chrome://extensions`
 3. Enable "Developer mode" in the top right corner
 4. Click "Load unpacked" and select the directory containing the extension files
