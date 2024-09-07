@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Netflix Dual Language Subtitles",
+  "version": "1.0",
+  "description": "Adds two different language subtitles to Netflix",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.netflix.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
