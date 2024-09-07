@@ -2,6 +2,8 @@ body {
   width: 300px;
   padding: 10px;
   font-family: Arial, sans-serif;
+  background-color: #141414;
+  color: #ffffff;
 }
 
 h1 {
@@ -21,16 +23,26 @@ label {
 select, button {
   width: 100%;
   padding: 5px;
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+}
+
+select {
+  cursor: pointer;
 }
 
 button {
   margin-top: 10px;
-  background-color: #4CAF50;
+  background-color: #e50914;
   color: white;
   border: none;
   cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #f40612;
 }
