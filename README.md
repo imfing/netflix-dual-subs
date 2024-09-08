@@ -1,6 +1,6 @@
 # Netflix Dual Language Subtitles
 
-A Chrome extension that adds support for dual language subtitles on Netflix. Great for language learners.
+Chrome extension that adds support for additional language subtitles on Netflix. Great for language learners.
 
 <table>
   <tr>
@@ -14,9 +14,12 @@ A Chrome extension that adds support for dual language subtitles on Netflix. Gre
 ## Features
 
 - Display subtitles in a preferred language alongside Netflix's default subtitles
-- Support for multiple languages including English, Japanese, Chinese (Simplified and Traditional), Spanish, and French
+- Support for multiple languages including English, Spanish, French, Italian, Japanese, Korean, Chinese (Simplified and Traditional)
 - Easy-to-use popup interface for language selection
 - Automatic subtitle fetching and parsing
+
+> **Note:** This extension is currently in the early stages of development. Some features may not work as expected, and your feedback is greatly appreciated!
+
 
 ## Installation
 
