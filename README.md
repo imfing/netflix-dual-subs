@@ -2,6 +2,15 @@
 
 A Chrome extension that adds support for dual language subtitles on Netflix. Great for language learners.
 
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/bc1a86df-be19-459b-961d-2cd2a119593d" width=800></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/a6e38bb6-6232-4c89-b7df-5547a690e2fe" width=800></td>
+  </tr>
+</table>
+
 ## Features
 
 - Display subtitles in a preferred language alongside Netflix's default subtitles
@@ -22,15 +31,6 @@ A Chrome extension that adds support for dual language subtitles on Netflix. Gre
 2. Select your preferred subtitle language
 3. Click "Save Settings"
 4. Reload your Netflix page for the changes to take effect
-
-## Files
-
-- `background.js`: Handles background processes and message passing
-- `content.js`: Injects scripts into Netflix pages
-- `popup.html` & `popup.js`: Manage the extension's user interface
-- `scripts/inject.js`: Fetches and stores subtitle data
-- `scripts/subtitle.js`: Parses and displays subtitles
-- `styles.css`: Styles the popup interface
 
 ## Contributing
 
