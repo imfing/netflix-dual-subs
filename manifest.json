@@ -8,9 +8,6 @@
     "storage",
     "scripting"
   ],
-  "host_permissions": [
-    "*://*.netflix.com/*"
-  ],
   "background": {
     "service_worker": "background.js"
   },
