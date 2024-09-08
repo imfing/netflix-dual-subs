@@ -99,11 +99,44 @@ function getSettings() {
   });
 }
 
-// Modify the loadAndApplySubtitles function to use the settings
+// Function to get available languages from local storage
+function getAvailableLanguages() {
+  const languages = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('subtitle-')) {
+      languages.push(key.replace('subtitle-', ''));
+    }
+  }
+  return languages;
+}
+
+// Helper function to find the best matching language
+function findBestMatchingLanguage(preferredLanguage, availableLanguages) {
+  return availableLanguages.find(lang => lang.startsWith(preferredLanguage)) || null;
+}
+
+// Modify the loadAndApplySubtitles function to use the simplified matching logic
 async function loadAndApplySubtitles(videoElement) {
   const settings = await getSettings();
-  console.log('Settings:', settings);
-  const language = settings.preferredLanguage || 'en'; // Default to English if not set
+  console.debug('Settings:', settings);
+  const preferredLanguage = settings.preferredLanguage;
+
+  if (!preferredLanguage) {
+    console.warn('No preferred language set.');
+    return;
+  }
+
+  const availableLanguages = getAvailableLanguages();
+  console.debug('Available languages:', availableLanguages);
+
+  let language = findBestMatchingLanguage(preferredLanguage, availableLanguages);
+  if (!language) {
+    console.error(`No subtitles available for ${preferredLanguage}.`);
+    return;
+  }
+
+  console.debug(`Selected language: ${language}`);
   const subtitles = loadSubtitles(language);
   if (subtitles) {
     applySubtitles(videoElement, subtitles);
