@@ -1,5 +1,7 @@
 # Netflix Dual Language Subtitles
 
+[Download from Chrome Web Store](https://chromewebstore.google.com/detail/netflix-dual-language-sub/clkmfbjjppcghlhmikoomdkkaefpngom)
+
 Chrome extension that adds support for additional language subtitles on Netflix. Great for language learners.
 
 <table>
@@ -38,6 +40,12 @@ Chrome extension that adds support for additional language subtitles on Netflix.
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## See Also
+
+Similar projects:
+
+- https://github.com/DeeFrancois/netflix-dual-subs
 
 ## License
 
